@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Go Motivator</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 Go Motivator</h1>
+    <p id="quote">Click the button for some wisdom.</p>
+    <button onclick="getQuote()">Inspire Me ✨</button>
+  </div>
+
+  <script>
+    async function getQuote() {
+      const res = await fetch('/quote');
+      const data = await res.json();
+      document.getElementById('quote').innerText = data.quote;
+    }
+  </script>
+</body>
+</html>
